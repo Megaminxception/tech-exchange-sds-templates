@@ -13,6 +13,9 @@
 # limitations under the License.
 
 # ---- YOUR APP STARTS HERE ----
+
+""" Elijah Truitt """
+
 # -- Import section --
 from flask import Flask
 from flask import render_template
