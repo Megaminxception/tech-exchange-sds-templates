@@ -11,4 +11,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+correct_ans = {
+    "NY": "new york",
+    "CA": "sacramento",
+    "WA": "olympia",
+    "GA": "atlanta",
+    "TX": "austin",
+}
 
+def check_capitals(answers: dict) -> dict:
+    res = {}
+    for state in answers.keys():
+        res[state] = True if answers[state].lower() == correct_ans[state] else False
+    
+    return res

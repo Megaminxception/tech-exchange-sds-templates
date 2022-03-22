@@ -14,3 +14,27 @@
  * limitations under the License.
  */
 
+html {
+  background-color: gray;
+}
+
+body {
+  color: lightblue;
+}
+
+form {
+  width: 10%;
+  color: blue;
+}
+
+input {
+  width: 100%;
+  padding: 15%;
+}
+
+.button {
+  width: 125%;
+  color: lightblue;
+  margin: auto;
+  text-align: center;
+}

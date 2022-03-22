@@ -15,8 +15,9 @@
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
 from flask import Flask
-# from flask import render_template
-# from flask import request
+from flask import render_template
+from flask import request, redirect
+from model import check_capitals
 
 
 # -- Initialization section --
@@ -27,4 +28,18 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    return "hello world"
+    return render_template("index.html")
+
+@app.route('/helpme', methods=["GET","POST"])
+def helpme():
+    if request.method == "GET":
+        return redirect("/")
+
+    answers = {"NY": request.form['New York'], "CA": request.form['California'],
+               "WA": request.form['Washington'], "GA": request.form['Georgia'],
+               "TX": request.form['Texas']}
+    for answer in answers.keys():
+        if answers[answer] == "":
+            return render_template('results.html', empty=True)
+    
+    return render_template('results.html', results=check_capitals(answers))

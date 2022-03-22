@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+  {% if empty == True %}
+    <p>You need to go back and fill out all the fields!</p>
+  {% else %}
+    <h1>Your Results</h1>
+    {% for state, result in results.items() %}
+      {% if result == True %}
+        <p>You got the capital of {{ state }} correct!</p>
+      {% else %}
+        <p>You got the capital of {{ state }} wrong :(</p>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endblock %}
+
